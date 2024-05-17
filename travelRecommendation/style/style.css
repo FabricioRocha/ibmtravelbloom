@@ -1,0 +1,9 @@
+
+html {
+    background-image: "pexels-life-of-pix-7919-sq.jpg";
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
