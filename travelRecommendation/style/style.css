@@ -1,9 +1,9 @@
 
-html {
-    background-image: "pexels-life-of-pix-7919-sq.jpg";
+body {
+    background: center url("pexels-life-of-pix-7919-sq.jpg");
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
