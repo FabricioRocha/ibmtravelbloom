@@ -18,19 +18,19 @@
                 <a href="./contact.html">Contact Us</a>
             </div>
         </nav>
-        <main>
-            <section>
-                <h1>Contact Us</h1>
+        <main class="split">
+            <section class="split-left">
+                <h1>CONTACT US</h1>
                 <p>In a few minutes one of our agents will get in touch with you.</p>
             </section>
-            <form>
+            <form id="contactform" class="split-right">
                 <label for="name">Name</label>
                 <input type="text" id="name"/>
                 <label for="email">E-mail</label>
                 <input type="email" id="email"/>
                 <label for="message">Your message</label>
-                <input type="textarea" id="message"/>
-                <button type="button">Send</button>
+                <textarea id="message" rows="5"></textarea>
+                <button type="button">Submit</button>
             </form>
         </main>
     </body>

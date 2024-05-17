@@ -1,9 +1,96 @@
 
 body {
     background: center url("pexels-life-of-pix-7919-sq.jpg");
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin: 1% 2%;
+}
+
+p, h1, h2, h3 {
+    margin: 0;
 }
 
 nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+#navlinks {
+    display: flex;
+    gap: 8px;
+}
+
+#navlinks a {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+#navlinks a:hover {
+    text-decoration: underline;
+}
+
+.split {
+    margin: 33vh 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.split-left {
+    grid-column: 1/2;
+    display: block;
+}
+
+.split-right {
+    grid-column: 2/3;
+}
+
+.split-left > *, .split-right > * {
+    margin: 1rem 0;
+}
+
+
+#contactform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#contactform > * {
+    margin: 4px 0;
+}
+
+#contactform label {
+    margin-bottom: 0;
+}
+
+#team {
+    margin: 0 5%;
+    display: flex;
+    gap: 2%;
+}
+
+#team article {
+    padding: 2px;
+    border-radius: 8px;
+    background-color:rgba(119, 136, 153, 0.2);
+}
+
+#team article p {
+    font-size: smaller;
+    margin: 1ch 0;
+}
+
+.aboutmain {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.teampos {
+    background-color: blue;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: bold;
 }
