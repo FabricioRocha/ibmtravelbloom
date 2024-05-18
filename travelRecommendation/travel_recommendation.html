@@ -19,8 +19,8 @@
             </div>
             <div id="navsearch">
                 <input type="search" id="searchfield"/>
-                <button type="button">Search</button>
-                <button type="reset">Clear</button>
+                <button type="button" id="searchbutton">Search</button>
+                <button type="reset" id="searchclear">Clear</button>
             </div>
         </nav>
         <main class="split">
@@ -40,6 +40,10 @@
         </main>
         <script src="./travel_recommendation.js"></script>
         <script>
+            
+            document.getElementById("searchbutton").addEventListener("click", doSearch);
+            
+            
             function doSearch() {
                 let term = document.getElementById("searchfield").value;
                 let ret = dbSearch(term) || [];
@@ -48,9 +52,11 @@
                     for (let i = 0; i < ret.length; i++) {
                         let card = document.getElementById("cardtemplate").cloneNode(true);
                         
-                        title = ret[i].name;
-                        image = ret[i].imageUrl;
-                        desc = ret[i].description;
+                        let cardfields = card.children;
+                        cardfields[1] = ret[i].imageUrl;
+                        cardfields[2] = ret[i].name;
+                        cardfields[3] = ret[i].description;
+
                         card.classList.remove("hide");
                     }
                 }

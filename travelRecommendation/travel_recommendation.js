@@ -15,7 +15,7 @@ fetch("travel_recommendation_api.json", opts)
     )
     .then(
         (respdata) => {
-            db = respdata;
+            db = JSON.parse(JSON.stringify(respdata));
         }
     )
     .catch (
