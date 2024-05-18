@@ -6,17 +6,24 @@ let opts = {
 }
 fetch("travel_recommendation_api.json", opts)
     .then(
-        (result) => {
-            console.log("Database loaded");
-            db = result.json();
+        (resp) => {
+            if (resp.ok) {
+                console.log("Fetch went well...");
+                return resp.json();
+            }
+        }
+    )
+    .then(
+        (respdata) => {
+            db = respdata;
         }
     )
     .catch (
-        (error) => {
-            console.log ("Something wrong importing the JSON:");
-            console.log (error.message);
-        }
-    )
+            (error) => {
+                console.log ("Something wrong importing the JSON:");
+                console.log (error.message);
+            }
+        )
 
 
 function dbSearch (keyword) {
