@@ -24,40 +24,55 @@
             </div>
         </nav>
         <main class="split">
-            <section class="split-left">
+            <section class="split-left hero">
                 <h1>EXPLORE YOUR DREAM DESTINATION</h1>
                 <p>We offer travels to more than 11,000 locations all around the globe. There's no chance you won't fit any of them!</p>
                 <button type="button">BOOK NOW!</button>
             </section>
-            <section>
-                <article id="cardtemplate" class="card">
-                    <img src=".">
-                    <h3>Destination</h3>
-                    <p>Description</p>
-                    <button type="button">Visit</button>
-                </article>
+            
+            <section id="display">
+                
             </section>
         </main>
         <script src="./travel_recommendation.js"></script>
         <script>
             
             document.getElementById("searchbutton").addEventListener("click", doSearch);
-            
+
             
             function doSearch() {
                 let term = document.getElementById("searchfield").value;
                 let ret = dbSearch(term) || [];
 
                 if (ret.length) {
-                    for (let i = 0; i < ret.length; i++) {
-                        let card = document.getElementById("cardtemplate").cloneNode(true);
-                        
-                        let cardfields = card.children;
-                        cardfields[1] = ret[i].imageUrl;
-                        cardfields[2] = ret[i].name;
-                        cardfields[3] = ret[i].description;
+                    let display = document.getElementById("display");
 
-                        card.classList.remove("hide");
+                    // Clear previous content first
+                    while (display.firstChild) {
+                            display.firstChild.remove();
+                    }
+                    
+                    while (ret.length > 2) {
+                        let rem = Math.floor(Math.random() * ret.length - 1);
+                        ret.splice(rem, 1);
+                    }
+
+                    for (let i = 0; i < ret.length; i++) {
+                        let card = document.createElement("article");
+                        let image = document.createElement("img");
+                        let title = document.createElement("h3");
+                        let desc = document.createElement("p");
+
+                        image.setAttribute("src", ret[i].imageUrl);
+                        title.innerText = ret[i].name;
+                        desc.innerText = ret[i].description;
+                        card.classList.add("card");
+
+                        card.appendChild(image);
+                        card.appendChild(title);
+                        card.appendChild(desc);
+
+                        display.appendChild(card);
                     }
                 }
 
