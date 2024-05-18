@@ -29,7 +29,7 @@
                 <p>We offer travels to more than 11,000 locations all around the globe. There's no chance you won't fit any of them!</p>
                 <button type="button">BOOK NOW!</button>
             </section>
-            
+
             <section id="display">
                 
             </section>
@@ -38,6 +38,20 @@
         <script>
             
             document.getElementById("searchbutton").addEventListener("click", doSearch);
+            document.getElementById("searchclear").addEventListener("click", clearSearch);
+            document.getElementById("searchfield").addEventListener("keyup", 
+                (evt) => {
+                    if (evt.key === "Enter") doSearch();
+                }
+            );
+
+            function clearSearch() {
+                document.getElementById("searchfield").value = "";
+                let display = document.getElementById("display");
+                while (display.firstChild) {
+                        display.firstChild.remove();
+                }
+            }
 
             
             function doSearch() {
