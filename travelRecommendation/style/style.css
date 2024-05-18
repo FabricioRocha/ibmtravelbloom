@@ -94,3 +94,22 @@ nav {
     text-align: center;
     font-weight: bold;
 }
+
+.card {
+    width: 80%;
+    margin: 4px auto;
+    background-color: white;
+}
+
+.card p {
+    font-size: 0.7rem;
+    color:gray;
+}
+
+.card h3 {
+    color:black;
+}
+
+.hide {
+    display: none;
+}

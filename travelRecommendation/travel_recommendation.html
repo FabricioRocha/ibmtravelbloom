@@ -18,9 +18,9 @@
                 <a href="./contact.html">Contact Us</a>
             </div>
             <div id="navsearch">
-                <input type="search"/>
+                <input type="search" id="searchfield"/>
                 <button type="button">Search</button>
-                <button type="reset">Clear</button?
+                <button type="reset">Clear</button>
             </div>
         </nav>
         <main class="split">
@@ -29,6 +29,33 @@
                 <p>We offer travels to more than 11,000 locations all around the globe. There's no chance you won't fit any of them!</p>
                 <button type="button">BOOK NOW!</button>
             </section>
+            <section>
+                <article id="cardtemplate" class="card">
+                    <img src=".">
+                    <h3>Destination</h3>
+                    <p>Description</p>
+                    <button type="button">Visit</button>
+                </article>
+            </section>
         </main>
+        <script src="./travel_recommendation.js"></script>
+        <script>
+            function doSearch() {
+                let term = document.getElementById("searchfield").value;
+                let ret = dbSearch(term) || [];
+
+                if (ret.length) {
+                    for (let i = 0; i < ret.length; i++) {
+                        let card = document.getElementById("cardtemplate").cloneNode(true);
+                        
+                        title = ret[i].name;
+                        image = ret[i].imageUrl;
+                        desc = ret[i].description;
+                        card.classList.remove("hide");
+                    }
+                }
+
+            }
+        </script>
     </body>
 </html>
